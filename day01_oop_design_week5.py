@@ -1,16 +1,9 @@
-
-
 from abc import ABC, abstractmethod
 
 
 # Base class: Inheritance
 class Employee(ABC):
-    def __init__(
-        self,
-        employee_id: str,
-        name: str,
-        salary: float
-    ) -> None:
+    def __init__(self, employee_id: str, name: str, salary: float) -> None:
         self._employee_id = employee_id
         self.name = name
         self.salary = salary
@@ -33,15 +26,12 @@ class Employee(ABC):
     def calculate_bonus(self) -> float:
         pass
 
+
 # %%
 # Inheritance: Developer is an Employee
 class Developer(Employee):
     def __init__(
-        self,
-        employee_id: str,
-        name: str,
-        salary: float,
-        programming_language: str
+        self, employee_id: str, name: str, salary: float, programming_language: str
     ) -> None:
         super().__init__(employee_id, name, salary)
         self.programming_language = programming_language
@@ -53,11 +43,7 @@ class Developer(Employee):
 # Inheritance: Manager is an Employee
 class Manager(Employee):
     def __init__(
-        self,
-        employee_id: str,
-        name: str,
-        salary: float,
-        team_size: int
+        self, employee_id: str, name: str, salary: float, team_size: int
     ) -> None:
         super().__init__(employee_id, name, salary)
 
@@ -105,7 +91,7 @@ class EmployeeService:
             print(f"Name: {employee.name}")
             print(f"Salary: {employee.salary:.2f}")
             print(f"Bonus: {employee.calculate_bonus():.2f}")
-            print("-" * 30)
+            print("-" * 80)
 
 
 # Application entry point
@@ -113,13 +99,9 @@ def main() -> None:
     repository = EmployeeRepository()
     service = EmployeeService(repository)
 
-    developer = Developer(
-        "EMP001", "Ajay", 40000, "Python"
-    )
+    developer = Developer("EMP001", "Ajay", 10000, "Python")
 
-    manager = Manager(
-        "EMP002", "Ravi", 60000, 5
-    )
+    manager = Manager("EMP002", "Ravi", 60000, 5)
 
     service.register_employee(developer)
     service.register_employee(manager)
