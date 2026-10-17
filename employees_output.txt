@@ -1,0 +1,4 @@
+101,Ajith,IT,30000
+102,Rahul,HR,25000
+103,Priya,IT,40000
+104,Kiran,Finance,35000
